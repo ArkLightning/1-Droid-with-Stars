@@ -256,8 +256,8 @@ int main()
         txSetColour(TX_WHITE);
 //       txSetFillColour(TX_WHITE);
         txEllipse (cthunX + 50, cthunY - 50, cthunX + 350, cthunY - 250);
-        txTextOut (cthunX + 100, cthunY - 200, "НЗОТ!");
-        txTextOut (cthunX + 100, cthunY - 150, "УБЕРИ НЕЛТАРИОНА!");
+        txTextOut (cthunX + 100, cthunY - 200, "УМРИ УЖЕ!");
+        txTextOut (cthunX + 100, cthunY - 150, "ДОСТАЛ ХИЛИТЬСЯ!");
 
         move(&cthunX, &cthunVX);
         move(&cthunY, &cthunVY);
@@ -284,7 +284,6 @@ int main()
             txMessageBox("'Не зная, что он бы мог сделать в данной ситуации, да и от простого пофигизма, поднялся к себе в комнату, лег на кровать и уснул.'", "Старший Лейтинант Вольтрон Лайтнинг");
             break;
         }
-
         droidSideX = droidX + droidRadius * 2 * cos(droidSideAngle);
         droidSideY = droidY + droidRadius * 2 * sin(droidSideAngle);
         droidSide(droidX, droidY, droidSideX, droidSideY, droidRadius / 1.666, droidRadius / 5);
@@ -304,13 +303,17 @@ int main()
 
         damageTimer = damageTimer - 1;
 
-        healTimer = healTimer + 0.1;
-        if (healTimer = 10000000000)
-        if (lives < 10)
-            lives = lives + 1;
+        healTimer = healTimer + 1;
+        if (healTimer >= 1000)
+        {
+            if (lives < 10)
+                lives = lives + 1;
+            healTimer = 0;
+        }
+
 
         txSleep(10);
     }
 
-    //txDeleteDC(destroy);
+//txDeleteDC(destroy);
 }
