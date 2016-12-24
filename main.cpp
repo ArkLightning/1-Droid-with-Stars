@@ -284,6 +284,13 @@ int main()
             txMessageBox("'Не зная, что он бы мог сделать в данной ситуации, да и от простого пофигизма, поднялся к себе в комнату, лег на кровать и уснул.'", "Старший Лейтинант Вольтрон Лайтнинг");
             break;
         }
+        if (lives >= 10)
+        {
+          if ((droidX > 320) & (droidX < 370) & (droidY > 320) & (droidY < 370 ))
+            break;
+        }
+
+
         droidSideX = droidX + droidRadius * 2 * cos(droidSideAngle);
         droidSideY = droidY + droidRadius * 2 * sin(droidSideAngle);
         droidSide(droidX, droidY, droidSideX, droidSideY, droidRadius / 1.666, droidRadius / 5);
@@ -310,7 +317,6 @@ int main()
                 lives = lives + 1;
             healTimer = 0;
         }
-
 
         txSleep(10);
     }
